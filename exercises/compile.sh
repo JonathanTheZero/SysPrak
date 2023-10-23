@@ -1,4 +1,5 @@
 #!/bin/bash
+# Suitable for single file compilations
 
 if [ -z "$1" ]; then
     echo "You didn't enter any arguments."
@@ -15,7 +16,7 @@ if [ ! -d "dist" ]; then
     mkdir dist
 fi
 
-gcc "$1/main.c" -o "dist/$1"
+gcc "$1/main.c" -o "dist/$1" -std=c99 -Wall
 
 if [ $? -eq 0 ]; then
     path=$""
@@ -26,7 +27,8 @@ if [ $? -eq 0 ]; then
         path="./dist/$1 $2"
     fi
     echo -e "Compilation successful. Executing at $path...\n\n\n"
-    "$path"
+    echo -e "--------------------------------------------------------------------"
+    eval "$path"
 else
     echo "Compilation failed."
 fi
