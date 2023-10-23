@@ -26,7 +26,7 @@ if [ $? -eq 0 ]; then
         path="./dist/$1 $2"
     fi
     echo -e "Compilation successful. Executing at $path...\n\n\n"
-    echo "---------------------------------------------------"
+    "$path"
 else
     echo "Compilation failed."
 fi
