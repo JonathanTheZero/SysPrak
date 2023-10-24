@@ -5,7 +5,6 @@
 #define MAX 9
 #define N 3
 
-int randomValue();
 void initializeMatrices(int mat1[][N], int mat2[][N]);
 void printMatrix(int mat[N][N]);
 void multiplyMatrices(int mat1[][N], int mat2[][N], int result[][N]);
@@ -47,8 +46,8 @@ void initializeMatrices(int mat1[][N], int mat2[][N])
     {
         for (int j = 0; j < N; j++)
         {
-            mat1[i][j] = randomValue();
-            mat2[i][j] = randomValue();
+            mat1[i][j] = rand() % 10;
+            mat2[i][j] = rand() % 10;
         }
     }
 }
@@ -74,9 +73,4 @@ void printMatrix(int mat[N][N])
         printf("-");
     }
     printf("\n");
-}
-
-int randomValue()
-{
-    return (rand() % (MAX + 1 - MIN)) + MIN;
 }
