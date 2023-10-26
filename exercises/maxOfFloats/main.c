@@ -2,30 +2,63 @@
 #include <stdlib.h>
 #include <limits.h>
 
+int getFileContents(char *filename, float **nums);
+void findMaxNum(float *nums, int length);
+
 int main()
 {
-    FILE *data = fopen("./floats.txt", "r");
-    char nums[100];
-    float parsedNums[10000];
-    if (data == NULL)
+    float *nums = NULL;
+    int length = getFileContents("./floats.txt", &nums);
+    if (length > 0)
     {
-        printf("Error while opening file.\n");
+        findMaxNum(nums, length);
+    }
+    else
+    {
+        perror("Couldn't parse array!");
         return 1;
     }
-    int i = 0;
-    while (fgets(nums, 100, data))
+    return 0;
+}
+
+int getFileContents(char *filename, float **nums)
+{
+    FILE *data = fopen("./floats.txt", "r");
+    if (data == NULL)
     {
-        parsedNums[i++] = atof(nums);
+        perror("Failed to open file");
+        return -1;
     }
-    float max = parsedNums[0];
-    for (int j = 0; j < 10000; j++)
+
+    int i = 0;
+    char content[100];
+    while (fgets(content, 100, data))
     {
-        if (parsedNums[j] > max)
+        float value = atof(content);
+        float *tmp_ptr = realloc(*nums, (i + 1) * sizeof(float));
+        if (tmp_ptr == NULL)
         {
-            max = parsedNums[j];
+            perror("Memory allocation failed");
+            free(nums);
+            fclose(data);
+            return -1;
+        }
+        *nums = tmp_ptr;
+        (*nums)[i++] = value;
+    }
+    fclose(data);
+    return i;
+}
+
+void findMaxNum(float *nums, int length)
+{
+    float max = nums[0];
+    for (int i = 1; i < length; ++i)
+    {
+        if (nums[i] > max)
+        {
+            max = nums[i];
         }
     }
-    printf("Max value is: %f\n", max);
-    fclose(data);
-    return 0;
+    printf("The maximum number is: %f\n", max);
 }
