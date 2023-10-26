@@ -1,6 +1,8 @@
 {
     "files.associations": {
-        "cstdlib": "c"
+        "cstdlib": "c",
+        "unistd.h": "c",
+        "board.h": "c"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

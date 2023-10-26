@@ -16,7 +16,7 @@ if [ ! -d "dist" ]; then
     mkdir dist
 fi
 
-gcc "$1/main.c" -o "dist/$1" -std=c99 -Wall
+gcc "$1/main.c" -o "dist/$1.out" -std=c99 -Wall
 
 if [ $? -eq 0 ]; then
     path=$""
