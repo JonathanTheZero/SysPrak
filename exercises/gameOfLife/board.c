@@ -42,20 +42,6 @@ void fillBoard(bool ***board, int rows, int percentage)
 bool isAliveNextRound(bool **board, int x, int y, int rows)
 {
     int neighboursSummed = 0;
-    // if (x > 0 && x < rows && y > 0 && y < rows)
-    //     neighboursSummed = board[x - 1][y] + board[x][y + 1] + board[x + 1][y] + board[x][y - 1];
-    // else if (x == 0 && y == 0)
-    //     neighboursSummed = board[x][y + 1] + board[x + 1][y];
-    // else if (x == rows && y == rows)
-    //     neighboursSummed = board[x][y - 1] + board[x - 1][y];
-    // else if (x == 0)
-    //     neighboursSummed = board[x][y + 1] + board[x][y - 1] + board[x + 1][y];
-    // else if (y == 0)
-    //     neighboursSummed = board[x - 1][y] + board[x + 1][y] + board[x][y + 1];
-    // else if (x == rows)
-    //     neighboursSummed = board[x][y + 1] + board[x][y - 1] + board[x - 1][y];
-    // else if (y == rows)
-    //     neighboursSummed = board[x - 1][y] + board[x + 1][y] + board[x][y - 1];
     if (x >= 0 && x < rows && y >= 0 && y < rows)
     {
         if (x > 0)
