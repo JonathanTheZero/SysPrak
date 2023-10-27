@@ -4,5 +4,9 @@
         "unistd.h": "c",
         "board.h": "c"
     },
-    "C_Cpp.errorSquiggles": "enabled"
+    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.intelliSenseEngine": "default",
+    "C_Cpp.default.intelliSenseMode": "linux-clang-x64",
+    "C_Cpp.intelliSenseEngineFallback": "enabled",
+    "editor.formatOnSave": true
 }
