@@ -4,7 +4,6 @@
 
 void printBoard(bool **board, int rows)
 {
-
     for (int i = 0; i < (2 * rows) + 1; ++i)
     {
         printf("-");

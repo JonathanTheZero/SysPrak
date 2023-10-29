@@ -53,5 +53,4 @@ dkms.conf
 
 dist/
 
-best.txt
-log.txt
+*.txt

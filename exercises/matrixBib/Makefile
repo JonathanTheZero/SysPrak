@@ -1,6 +1,6 @@
 CFLAGS = -g -Wall -std=c99
 CC = gcc
-TARGET = complex.out
+TARGET = matrixBib.out
 # Source files (include all .c files in the current directory)
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
