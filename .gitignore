@@ -52,3 +52,6 @@ Mkfile.old
 dkms.conf
 
 dist/
+
+best.txt
+log.txt

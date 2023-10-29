@@ -1,10 +1,14 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
+#include "logging.h"
 
 int main()
 {
 	srand(time(NULL));
+	char *name;
+	printf("Enter your name:");
+	scanf("%s", name);
 	int num = rand() % 100 + 1;
 	printf("Enter your guess (1 - 100):\n");
 	int guess, guesses = 1;
@@ -18,5 +22,7 @@ int main()
 	}
 	printf("Congratulations! The answer was %i and you got it in %i guesses!\n", num, guesses);
 
+	writeToLog(guesses, name);
+	addTry(guesses, name);
 	return 0;
 }

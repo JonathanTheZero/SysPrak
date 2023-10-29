@@ -2,7 +2,11 @@
     "files.associations": {
         "cstdlib": "c",
         "unistd.h": "c",
-        "board.h": "c"
+        "board.h": "c",
+        "stdio.h": "c",
+        "logging.h": "c",
+        "cstring": "c",
+        "*.def": "c"
     },
     "C_Cpp.errorSquiggles": "enabled",
     "C_Cpp.intelliSenseEngine": "default",
