@@ -12,7 +12,7 @@ all: $(TARGET)
 
 # Link the executable from object files
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^ -lm -lpthread
+	$(CC) $(CFLAGS) -o $@ $^ -lm -lpthread -lc
 
 # Compile source files to object files
 %.o: %.c
