@@ -10,7 +10,8 @@
     },
     "C_Cpp.errorSquiggles": "enabled",
     "C_Cpp.intelliSenseEngine": "default",
-    "C_Cpp.default.intelliSenseMode": "linux-clang-x64",
+    "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
     "C_Cpp.intelliSenseEngineFallback": "enabled",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "C_Cpp.default.cStandard": "c99"
 }
