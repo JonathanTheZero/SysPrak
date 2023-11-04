@@ -29,7 +29,7 @@ Complex multiply(Complex num1, Complex num2)
 
 Complex divide(Complex num1, Complex num2)
 {
-    int divisor = num2.real * num2.real + num2.imaginary * num2.imaginary;
+    double divisor = num2.real * num2.real + num2.imaginary * num2.imaginary;
     if (divisor == 0)
     {
         perror("Division by 0 is not allowed.");

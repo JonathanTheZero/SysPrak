@@ -1,14 +1,13 @@
-CFLAGS = -g -Wall -std=c99
+CFLAGS = -g -Wall -std=c99 -wextra
 CC = gcc
 TARGET = checkPrime.out
 # Source files (include all .c files in the current directory)
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
 
+.PHONY: clean full run all
 
 all: $(TARGET)
-
-.PHONY: clean full run all
 
 # Link the executable from object files
 $(TARGET): $(OBJS)
@@ -27,4 +26,5 @@ run: $(TARGET)
 	./$(TARGET)
 
 full:
-	make && make run
+	make
+	make run
