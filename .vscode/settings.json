@@ -6,12 +6,22 @@
         "stdio.h": "c",
         "logging.h": "c",
         "cstring": "c",
-        "*.def": "c"
+        "*.def": "c",
+        "math.h": "c",
+        "*.tcc": "c",
+        "fstream": "c",
+        "ostream": "c",
+        "shared_mutex": "c",
+        "sstream": "c",
+        "streambuf": "c",
+        "memory_resource": "c",
+        "*.gen": "c",
+        "*.inc": "c"
     },
     "C_Cpp.errorSquiggles": "enabled",
     "C_Cpp.intelliSenseEngine": "default",
     "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
     "C_Cpp.intelliSenseEngineFallback": "enabled",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "C_Cpp.default.cStandard": "c99"
 }

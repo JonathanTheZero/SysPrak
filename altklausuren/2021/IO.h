@@ -1,0 +1,1 @@
+void getAB(int *a, int *b);
