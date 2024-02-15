@@ -19,7 +19,8 @@
         "*.inc": "c",
         "sig.h": "c",
         "signal.h": "c",
-        "fibonacci.h": "c"
+        "fibonacci.h": "c",
+        "io.h": "c"
     },
     "C_Cpp.errorSquiggles": "enabled",
     "C_Cpp.intelliSenseEngine": "default",
