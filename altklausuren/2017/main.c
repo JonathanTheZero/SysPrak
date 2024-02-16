@@ -1,6 +1,7 @@
 #include "IO.h"
 #include <stdio.h>
 #include <limits.h>
+#include "server.h"
 
 int min_num(int *arr, int len)
 {
@@ -23,6 +24,8 @@ int main(void)
 
     int nums[] = {1, 2, 3, 4, 5, 6, 7, 8, -12, 54, 52, 65, 23};
     printf("Minimum: %i\n", min_num(nums, 13));
+
+    test_connect();
 
     return 0;
 }
