@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/socket.h>
+#include <arpa/inet.h>
 #include <netdb.h>
 
 #define HOST "sysprak.priv.lab.nm.ifi.lmu.de"
@@ -15,17 +16,16 @@
 void test_connect()
 {
     struct addrinfo hints, *result, *rp;
+
     int sfd, status;
 
     memset(&hints, 0, sizeof(hints));
 
-    hints.ai_family = AF_UNSPEC;    /* Allow IPv4 or IPv6 */
-    hints.ai_socktype = SOCK_DGRAM; /* Datagram socket */
-    hints.ai_flags = AI_PASSIVE;    /* For wildcard IP address */
-    hints.ai_protocol = 0;          /* Any protocol */
+    hints.ai_family = AF_INET;       /* Allow IPv4 or IPv6 */
+    hints.ai_socktype = SOCK_STREAM; /* Datagram socket */
+    hints.ai_flags = AI_PASSIVE;     /* For wildcard IP address */
+    hints.ai_protocol = 0;           /* Any protocol */
     hints.ai_canonname = NULL;
-    hints.ai_addr = NULL;
-    hints.ai_next = NULL;
 
     char port[20];
     snprintf(port, sizeof(port), "%d", PORT);
@@ -43,10 +43,8 @@ void test_connect()
         if (sfd == -1)
             continue;
 
-        if (bind(sfd, rp->ai_addr, rp->ai_addrlen) == 0)
+        if (connect(sfd, rp->ai_addr, rp->ai_addrlen) == 0)
             break; /* Success */
-
-        close(sfd);
     }
 
     if (rp == NULL)
@@ -54,25 +52,11 @@ void test_connect()
         fprintf(stderr, "Could not bind\n");
         exit(EXIT_FAILURE);
     }
-    freeaddrinfo(result);
 
-    for (rp = result; rp != NULL; rp = rp->ai_next)
-    {
-        sfd = socket(rp->ai_family, rp->ai_socktype, rp->ai_protocol);
-        if (sfd == -1)
-            continue;
-
-        if (bind(sfd, rp->ai_addr, rp->ai_addrlen) == 0)
-            break; /* Success */
-
-        close(sfd);
-    }
-
-    if (rp == NULL)
-    { /* No address succeeded */
-        fprintf(stderr, "Could not bind\n");
-        exit(EXIT_FAILURE);
-    }
+    char addrstr[999];
+    inet_ntop(rp->ai_family, &((struct sockaddr_in *)rp->ai_addr)->sin_addr, addrstr, sizeof addrstr);
+    printf("Eine Verbindung konnte erfolgreich aufgebaut werden.\n");
+    printf("IPv4 address: %s (%s)\n", addrstr, rp->ai_canonname);
 
     freeaddrinfo(result);
 }
