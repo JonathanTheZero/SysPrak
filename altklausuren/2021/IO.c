@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "IO.h"
 #include <stdlib.h>
-#include <string.h>
 
 void getAB(int *a, int *b)
 {
@@ -15,15 +14,18 @@ void getAB(int *a, int *b)
     char line[100];
     while (fgets(line, sizeof(line), file) != NULL)
     {
-        char paramName[50], paramValue[50];
-        sscanf(line, "%49s = %49s", paramName, paramValue);
-        if (!strcmp(paramName, "a"))
+        char key;
+        int value;
+        sscanf(line, " %c = %i ", &key, &value);
+        printf("Key: %c, Value: %i\n", key, value);
+        if (key == '\n') continue;
+        if (key == 'a')
         {
-            *a = atoi(paramValue);
+            *a = value;
         }
-        if (!strcmp(paramName, "b"))
+        if (key == 'b')
         {
-            *b = atoi(paramValue);
+            *b = value;
         }
     }
 

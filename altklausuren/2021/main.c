@@ -36,7 +36,7 @@ int primeNumber_main(int argc, char **argv)
     return 0;
 }
 
-int file_main(int argc, char **argv)
+int main(int argc, char **argv)
 {
     int a, b;
     getAB(&a, &b);
@@ -57,7 +57,7 @@ int ll_main(void)
     return 0;
 }
 
-int main(void){
+int pipe_main(void){
     int fd[2];
     int result = creat_und_write(fd, "Hallo Welt\0");
 }

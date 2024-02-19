@@ -1,5 +1,5 @@
 CCFLAGS = -Wall
-CFILES = shm.c pipe.c
+CFILES = shm.c pipe.c io.c
 OUT = prog.out
 
 all:
